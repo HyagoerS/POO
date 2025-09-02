@@ -1,19 +1,21 @@
 class GeradorDeLog:
 
     def info(mensagem):
-        return
+        return "[INFO]"
     
     def alerta(mensagem):
-        return 
+        return "[ALERT]"
     
     def erro(mensagem):
-        return
+        return "[ERRO]"
+    
+
 mensagem = input("digite uma mensagem: ")
 
-gerador1 = GeradorDeLog.info(mensagem)
-gerador2 = GeradorDeLog.alerta(mensagem)
-gerador3 = GeradorDeLog.erro(mensagem)
+gerador_log1 = GeradorDeLog.info(mensagem)
+gerador_log2 = GeradorDeLog.alerta(mensagem)
+gerador_log3 = GeradorDeLog.erro(mensagem)
 
-print(gerador1)
-print(gerador2)
-print(gerador3)
+print(gerador_log1)
+print(gerador_log2)
+print(gerador_log3)
