@@ -2,7 +2,7 @@ import math
 class CalculadoraGeometrica:
 
     def calcular_area_quadrado(lado):
-        return  lado * 2
+        return  lado ** 2
 
     def calcular_area_circulo(raio):
         return 3.1415 * raio ** 2
