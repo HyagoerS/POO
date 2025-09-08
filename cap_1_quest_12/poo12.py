@@ -3,26 +3,34 @@ class ContaBancaria:
         self.titular = titular
         self.saldo = saldo
 
-        def depositar(self, valor):
+
+    def depositar(self, valor):
+        if valor > 0:
             self.saldo += valor
-            if saldo > 0:
-                True
+            print(f"Depósito de R${valor:.2f} realizado com sucesso.")
+        else:
+            print("O valor do depósito deve ser positivo.")
 
-        def sacar(self, valor):
+    def sacar(self, valor):
+        if 0 < valor <= self.saldo:
             self.saldo -= valor
-            if saldo <= 0:
-                False
+            print(f"Saque de R${valor:.2f} realizado com sucesso.")
+        elif valor <= 0:
+            print("O valor do saque deve ser positivo.")
+        else:
+            print("Saldo insuficiente.")
 
 
-conta_banco = 10
+conta = ContaBancaria("POO", 100.00)
 
-depositar_conta = float(input("Digite o valor que vacê deseja depositar: "))
+print(f"Saldo inicial da conta de {conta.titular}: R${conta.saldo:.2f}")
+
+
+depositar_conta = float(input("Digite o valor que você deseja depositar: "))
 sacar_conta = float(input("Digite o valor que você deseja sacar: "))
 
-valor_banco = ContaBancaria(conta_banco)
-valor_banco.depositar(depositar_conta)
-valor_banco.sacar(sacar_conta)
 
-print(f"Situação da sua conta {valor_banco}")
+conta.depositar(depositar_conta)
+conta.sacar(sacar_conta)
 
-
+print(f"Saldo final da conta de {conta.titular}: R${conta.saldo:.2f}")
