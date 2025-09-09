@@ -23,3 +23,17 @@ class CarrinhoDeCompras:
         return total
     
 quantidade_pedido = int(input("Quantidade que deseja comprar do produto: "))
+
+pedido = CarrinhoDeCompras("Pedidos")
+
+produto1 = Produto("Garrafa térmica", 54.65, 23)
+produto2 = Produto("Celular", 1334.69, 19)
+produto3 = Produto("Mouse Gamer", 54.00, 48)
+
+pedido.adicionar_produto(produto1)
+pedido.adicionar_produto(produto2)
+pedido.adicionar_produto(produto3)
+
+
+
+print(f"Total do pedido: R$ {pedido.calcular_total():.2f}")
