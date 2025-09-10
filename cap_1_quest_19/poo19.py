@@ -5,35 +5,33 @@ class Produto:
         self.estoque = estoque
 
 class CarrinhoDeCompras:
-    def __init__(self, itens):
-        self.itens = itens
+    def __init__(self):
+        self.itens = []
 
     def adicionar_produto(self, produto, quantidade):
-        self.produto.append(produto)
-        print(f"{produto.nome}' foi adicionado a produtos.")
-
-        if quantidade > quantidade_pedido:
-            print("Erro quantidade indesejada")
-            return
+        if quantidade > produto.estoque:
+            print(f"Não há estoque suficiente para adicionar {quantidade} unidades de {produto.nome}.")
         else:
-            print("Erro quantidade indesejada")
+            self.itens.append({'produto': produto, 'quantidade': quantidade})
+            print(f"{quantidade} unidade(s) de '{produto.nome}' foi(ram) adicionada(s) ao carrinho.")
+            produto.estoque -= quantidade
+            print(f"Estoque atual de {produto.nome}: {produto.estoque}")
 
     def finalizar_compra(self):
-        total = sum(item.preco for item in self.itens)
+        total = sum(item['produto'].preco * item['quantidade'] for item in self.itens)
         return total
-    
-quantidade_pedido = int(input("Quantidade que deseja comprar do produto: "))
 
-pedido = CarrinhoDeCompras("Pedidos")
-
-produto1 = Produto("Garrafa térmica", 54.65, 23)
+produto1 = Produto("Garrafa térmica", 54.65, 20)
 produto2 = Produto("Celular", 1334.69, 19)
-produto3 = Produto("Mouse Gamer", 54.00, 48)
-
-pedido.adicionar_produto(produto1)
-pedido.adicionar_produto(produto2)
-pedido.adicionar_produto(produto3)
+produto3 = Produto("Mouse Gamer", 54.00, 8)
 
 
+carrinho = CarrinhoDeCompras()
 
-print(f"Total do pedido: R$ {pedido.calcular_total():.2f}")
+carrinho.adicionar_produto(produto1, 2)
+carrinho.adicionar_produto(produto2, 1)
+carrinho.adicionar_produto(produto3, 5)
+carrinho.adicionar_produto(produto1, 25)
+
+
+print(f"Total do pedido: R$ {carrinho.finalizar_compra():.2f}")
