@@ -25,10 +25,4 @@ vilao = Personagem("Vilão", 80, 15)
 print(f"Batalha entre {heroi.nome} e {vilao.nome}!")
 
 
-heroi.atacar_oponente(vilao)
-
-vilao.atacar_oponente(heroi)
-
-heroi.atacar_oponente(vilao)
-
 print("Fim da batalha.")
